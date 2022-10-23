@@ -1,28 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 11:41:37 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/23 11:41:59 by obednaou         ###   ########.fr       */
+/*   Created: 2022/10/23 10:42:05 by obednaou          #+#    #+#             */
+/*   Updated: 2022/10/23 10:42:20 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "ft_printf.h"
 
-# include <stdarg.h>
-# include <unsitd.h>
-
-int		ft_toupper(int c);
-char	ft_is_specifier(char c);
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
-void	ft_putnbr_fd(int n, int fd);
-void	ft_print_arg(va_list ap, char specifier);
-void	ft_putnbr_hexa(unsigned int nb, char alpha_case);
-void	ft_putaddress(void *address);
-
-#endif
+void	ft_putnbr_fd(int n, int fd)
+{
+	if (n < 0)
+	{
+		ft_putchar_fd(45, fd);
+		if (n == -2147483648)
+			ft_putstr_fd("2147483648\0", fd);
+		else
+			ft_putnbr_fd(-n, fd);
+		return ;
+	}
+	if (n >= 10)
+		ft_putnbr_fd(n / 10, fd);
+	ft_putchar_fd(n % 10 + 48, fd);
+}
