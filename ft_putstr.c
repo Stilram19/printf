@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress.c                                    :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 12:33:47 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/23 13:21:57 by obednaou         ###   ########.fr       */
+/*   Created: 2022/10/23 10:40:41 by obednaou          #+#    #+#             */
+/*   Updated: 2022/10/23 17:52:15 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static void	ft_putnbr_64_hexa(size_t nbr)
+int	ft_putstr(char *s)
 {
-	if (nbr <= 
-}
-
-void	ft_putaddress(void *address)
-{
-	ft_putnbr_64_hexa((size_t)address);	
+	if (!s)
+		return (write(1, "(null)", 6));
+	while (*s)
+		write(1, s++, 1);
+	return (ft_strlen(s));
 }

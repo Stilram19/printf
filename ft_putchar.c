@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/23 10:42:05 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/23 10:42:20 by obednaou         ###   ########.fr       */
+/*   Created: 2022/10/23 10:39:59 by obednaou          #+#    #+#             */
+/*   Updated: 2022/10/23 17:43:50 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putchar(char c)
 {
-	if (n < 0)
-	{
-		ft_putchar_fd(45, fd);
-		if (n == -2147483648)
-			ft_putstr_fd("2147483648\0", fd);
-		else
-			ft_putnbr_fd(-n, fd);
-		return ;
-	}
-	if (n >= 10)
-		ft_putnbr_fd(n / 10, fd);
-	ft_putchar_fd(n % 10 + 48, fd);
+	return (write(1, &c, 1));
 }
