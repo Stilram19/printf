@@ -6,11 +6,26 @@
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:43:11 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/23 18:39:07 by obednaou         ###   ########.fr       */
+/*   Updated: 2022/10/24 16:34:35 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	digits_count_b_16(size_t nb)
+{
+	int	count;
+
+	count = 0;
+	if (!nb)
+		return (1);
+	while (nb)
+	{
+		count++;
+		nb /= 16;
+	}
+	return (count);
+}
 
 static void	ft_print_remainder(char remainder, char alpha_case)
 {
@@ -27,26 +42,29 @@ static void	ft_print_remainder(char remainder, char alpha_case)
 	ft_putchar(remainder + 87);
 }
 
-int	ft_putnbr_32_hexa(unsigned int nb, char specifier)
+static void	ft_putnbr_32_hexa(unsigned int nb, char specifier)
 {
-	static int	digits_count;
-
-	digits_count++;
 	if (nb >= 16)
 		ft_putnbr_32_hexa(nb / 16, specifier);
 	ft_print_remainder(nb % 16, specifier);
-	return (digits_count);
 }
 
-int	ft_putnbr_64_hexa(size_t nb, char specifier)
+static void	ft_putnbr_64_hexa(size_t nb, char specifier)
 {
-	static int	digits_count;
-
-	digits_count++;
 	if (nb >= 16)
 		ft_putnbr_64_hexa(nb / 16, specifier);
 	else
-		digits_count += write(1, "0x", 2);
+		write(1, "0x", 2);
 	ft_print_remainder(nb % 16, specifier);
-	return (digits_count);
+}
+
+int	ft_putnbr_hexa(size_t nb, char specifier)
+{
+	if (specifier == 'x' || specifier == 'X')
+	{
+		ft_putnbr_32_hexa(nb, specifier);
+		return (digits_count_b_16((unsigned int)nb));
+	}
+	ft_putnbr_64_hexa(nb, specifier);
+	return (digits_count_b_16(nb) + 2);
 }

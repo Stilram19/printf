@@ -6,7 +6,7 @@
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:40:41 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/23 17:52:15 by obednaou         ###   ########.fr       */
+/*   Updated: 2022/10/24 11:09:48 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,15 @@
 
 int	ft_putstr(char *s)
 {
+	int	i;
+
+	i = 0;
 	if (!s)
 		return (write(1, "(null)", 6));
-	while (*s)
-		write(1, s++, 1);
-	return (ft_strlen(s));
+	while (*(s + i))
+	{
+		write(1, s + i, 1);
+		i++;
+	}
+	return (i);
 }

@@ -1,10 +1,9 @@
 SRCS	= ft_printf.c \
-		  ft_strlen.c \
 		  ft_print_arg.c \
-		  ft_is_specifier.c \
 		  ft_putchar.c \
 		  ft_putstr.c \
 		  ft_putnbr.c \
+		  ft_put_unbr.c \
 		  ft_putnbr_hexa.c
 OBJS	= ${SRCS:.c=.o}
 CFLAGS	= -Wall -Wextra -Werror
