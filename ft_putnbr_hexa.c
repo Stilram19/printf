@@ -6,7 +6,7 @@
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 10:43:11 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/24 16:34:35 by obednaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:40:17 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,14 @@ static void	ft_putnbr_64_hexa(size_t nb, char specifier)
 
 int	ft_putnbr_hexa(size_t nb, char specifier)
 {
+	int	ret;
+
+	ret = digits_count_b_16(nb);
 	if (specifier == 'x' || specifier == 'X')
 	{
 		ft_putnbr_32_hexa(nb, specifier);
-		return (digits_count_b_16((unsigned int)nb));
+		return (ret);
 	}
 	ft_putnbr_64_hexa(nb, specifier);
-	return (digits_count_b_16(nb) + 2);
+	return (ret + 2);
 }

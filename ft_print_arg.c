@@ -6,7 +6,7 @@
 /*   By: obednaou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/23 11:40:06 by obednaou          #+#    #+#             */
-/*   Updated: 2022/10/24 17:59:50 by obednaou         ###   ########.fr       */
+/*   Updated: 2022/10/25 13:40:35 by obednaou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ int	ft_print_arg(va_list ap, char specifier)
 		return (ft_putnbr(va_arg(ap, int), specifier));
 	else if (specifier == 'u')
 		return (ft_put_unbr(va_arg(ap, unsigned int)));
-	else if (specifier == 37)
-		return (ft_putchar(37));
-	else if (specifier == 'x' || specifier == 'X'
-		|| specifier == 'p')
+	else if (specifier == 'x' || specifier == 'X')
+		return (ft_putnbr_hexa(va_arg(ap, unsigned int), specifier));
+	else if (specifier == 'p')
 		return (ft_putnbr_hexa(va_arg(ap, size_t), specifier));
 	else
 		return (ft_putchar(specifier));
