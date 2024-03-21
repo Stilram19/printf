@@ -10,7 +10,7 @@ This project is about reimplementing the famous printf function in c. Here is th
 
 During the development of this project, I've learned several important concepts including:
 
-- **Core concepts**: Variadic functions                            
+- **Core concepts**: Stack frame(call stack), Variadic functions                            
 - **Makefile**: using Makefile to automate the compilation process ,archive creation and dependencies management.
 - **Git**: Using git to commit and push to github or the 42-intra vogsphere
 - **Documentation**: Practiced writing clear and informative documentation, such as this README.md file, to aid users and contributors.
@@ -71,3 +71,4 @@ and my_program with your program name.
 - [integer promotion](https://www.geeksforgeeks.org/integer-promotions-in-c/)
 - [Variadic functions](https://www.geeksforgeeks.org/variadic-functions-in-c/)
 - [opaque types](https://en.wikipedia.org/wiki/Opaque_data_type)
+- [variadic variables in stack](https://stackoverflow.com/questions/63056235/how-are-variadic-variables-represented-on-the-stack)
