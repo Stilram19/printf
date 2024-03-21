@@ -1,7 +1,5 @@
 # 42_PRINTF
 
-# 42_PRINTF
-
 ## About
 
 This project is about reimplementing the famous printf function in c. Here is the link to the [subject](https://cdn.intra.42.fr/pdf/pdf/126098/en.subject.pdf)
