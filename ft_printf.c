@@ -19,14 +19,13 @@ int	ft_printf(const char *fmt, ...)
 
 	ret = 0;
 	va_start(ap, fmt);
-	while (*fmt)
+	while (*fmt != '\0')
 	{
-		if (*fmt == 37)
+		if (*fmt == '%')
 		{
-			if (*(fmt + 1))
-				ret += ft_print_arg(ap, *(fmt + 1));
-			else
+			if (*(fmt + 1) == '\0')
 				break ;
+			ret += ft_print_arg(ap, *(fmt + 1));
 			fmt += 2;
 			continue ;
 		}

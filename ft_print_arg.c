@@ -16,16 +16,15 @@ int	ft_print_arg(va_list ap, char specifier)
 {
 	if (specifier == 'c')
 		return (ft_putchar(va_arg(ap, int)));
-	else if (specifier == 's')
+	if (specifier == 's')
 		return (ft_putstr(va_arg(ap, char *)));
-	else if (specifier == 'i' || specifier == 'd')
+	if (specifier == 'i' || specifier == 'd')
 		return (ft_putnbr(va_arg(ap, int), specifier));
-	else if (specifier == 'u')
+	if (specifier == 'u')
 		return (ft_put_unbr(va_arg(ap, unsigned int)));
-	else if (specifier == 'x' || specifier == 'X')
+	if (specifier == 'x' || specifier == 'X')
 		return (ft_putnbr_hexa(va_arg(ap, unsigned int), specifier));
-	else if (specifier == 'p')
+	if (specifier == 'p')
 		return (ft_putnbr_hexa(va_arg(ap, size_t), specifier));
-	else
-		return (ft_putchar(specifier));
+	return (ft_putchar(specifier));
 }
