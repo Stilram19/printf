@@ -58,7 +58,7 @@ replace the /path/to with the path of the ft_printf.h file.
 ```bash
 gcc -o my_program my_program.c -L/path/to/libftprintf -lftprintf
 ```
-replace /path/to/libftprintf with the path to libftprintf.a,
+replace /path/to/libftprintf with the path to directory where libftprintf.a is,
 and my_program with your program name.
 
 ## Concepts you cannot do without (for students):
