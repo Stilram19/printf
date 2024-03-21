@@ -10,7 +10,7 @@ This project is about reimplementing the famous printf function in c. Here is th
 
 During the development of this project, I've learned several important concepts including:
 
-- **Core concepts**: Stack frame(call stack), Variadic functions                            
+- **Core concepts**: Stack frame(call stack), Variadic functions, opaque types                            
 - **Makefile**: using Makefile to automate the compilation process ,archive creation and dependencies management.
 - **Git**: Using git to commit and push to github or the 42-intra vogsphere
 - **Documentation**: Practiced writing clear and informative documentation, such as this README.md file, to aid users and contributors.
